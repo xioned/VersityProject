@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ItemSlot : MonoBehaviour, IPointerClickHandler
 {
@@ -11,7 +12,6 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
     public InventoryManager inventoryManager;
     public void OnPointerClick(PointerEventData eventData)
     {
-        inventoryManager.SelectItem(id);
-
+        inventoryManager.SelectItem(this);
     }
 }

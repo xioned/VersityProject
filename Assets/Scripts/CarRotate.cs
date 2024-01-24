@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CarRotate: MonoBehaviour
 {
+    public bool canRotate = true;
     private Touch touch;
     private Quaternion rotationY;
     public float rotateSpeed = 0.1f;
@@ -13,6 +14,7 @@ public class CarRotate: MonoBehaviour
 
     void Update()
     {
+        if(!canRotate) return;
         MouseRotate();
     }
     private void MouseRotate()
