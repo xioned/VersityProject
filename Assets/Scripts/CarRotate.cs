@@ -4,13 +4,13 @@ public class CarRotate: MonoBehaviour
 {
     public bool canRotate = true;
     private Touch touch;
-    private Quaternion rotationY;
     public float rotateSpeed = 0.1f;
-    
     public float Speed = 10f;
+    
 
-    private bool isRotating = false; 
-    private float startMousePosition;
+    private Quaternion rotationY;
+    public bool isRotating = false; 
+    public float startMousePosition;
 
     void Update()
     {
