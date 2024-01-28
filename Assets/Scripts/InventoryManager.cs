@@ -46,5 +46,16 @@ public class InventoryManager : MonoBehaviour
         carRotate.canRotate = true;
         carRotate.isRotating = false;
         selectedSlot.gameObject.SetActive(false);
+
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            if (itemSlots[i].gameObject.activeSelf == true)
+            {
+                return;
+            }
+
+
+        }
+
     }
 }
