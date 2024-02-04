@@ -10,7 +10,7 @@ public class CarRotate: MonoBehaviour
 
     private Quaternion rotationY;
     public bool isRotating = false; 
-    public float startMousePosition;
+    public Vector2 startMousePosition;
 
     void Update()
     {
@@ -22,7 +22,8 @@ public class CarRotate: MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             isRotating = true;
-            startMousePosition = Input.mousePosition.x;
+            startMousePosition.x = Input.mousePosition.x;
+            startMousePosition.y = Input.mousePosition.y;
         }
         else if (Input.GetMouseButtonUp(0))
         {
@@ -30,10 +31,15 @@ public class CarRotate: MonoBehaviour
         }
         if (isRotating)
         {
-            float currentMousePosition = Input.mousePosition.x;
-            float mouseMovement = currentMousePosition - startMousePosition;
-            transform.Rotate(Vector3.up, -mouseMovement * Speed * Time.deltaTime);
-            startMousePosition = currentMousePosition;
+            float currentMousePositionx = Input.mousePosition.x;
+            float mouseMovementx = currentMousePositionx - startMousePosition.x;
+            transform.Rotate(Vector3.up, -mouseMovementx * Speed * Time.deltaTime);
+            startMousePosition.x = currentMousePositionx;
+
+            //float currentMousePositiony = Input.mousePosition.y;
+            //float mouseMovementy = currentMousePositiony - startMousePosition.y;
+            //transform.Rotate(Vector3.right, -mouseMovementy * Speed * Time.deltaTime);
+            //startMousePosition.y = currentMousePositiony;
         }
     }
 

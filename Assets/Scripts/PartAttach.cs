@@ -10,6 +10,7 @@ public class PartAttach : MonoBehaviour
     public GameObject spawnedPart = null;
     public LayerMask groundLayer;
     public Transform ground;
+    public Transform parent;
     public Vector3[] groundPos;
     public GameObject[] ghostObject;
     public GameObject done;
@@ -67,7 +68,7 @@ public class PartAttach : MonoBehaviour
                         && Vector3.Distance(spawnedPart.transform.position, activeGhost.transform.position) < 4)
                     {
                         spawnedPart.transform.position = activeGhost.transform.position;
-                        spawnedPart.transform.parent = carRotate.transform;
+                        spawnedPart.transform.parent = parent;
                         activeGhost.transform.parent = done.transform;
                         activeGhost.SetActive(false);
                         ShowGhost();

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class InventoryManager : MonoBehaviour
     public ItemSlot[] itemSlots;
     public PartAttach partAttach;
     public CarRotate carRotate;
+    public UnityEvent finishEvent;
 
     public void SelectItem(ItemSlot itemSlot)
     {
@@ -42,19 +44,21 @@ public class InventoryManager : MonoBehaviour
             itemSlots[i].isSelcted = false;
             itemSlots[i].GetComponent<Image>().color = Color.white;
         }
-        carRotate.startMousePosition = Input.mousePosition.x;
+        carRotate.startMousePosition.x = Input.mousePosition.x;
         carRotate.canRotate = true;
         carRotate.isRotating = false;
         selectedSlot.gameObject.SetActive(false);
-
+        int a = 0;
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            if (itemSlots[i].gameObject.activeSelf == true)
+            if (itemSlots[i].gameObject.activeSelf == false)
             {
-                return;
+                a++;
             }
-
-
+        }
+        if (a == itemSlots.Length)
+        {
+            finishEvent?.Invoke();
         }
 
     }
