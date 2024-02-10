@@ -5432,6 +5432,8 @@ MonoBehaviour:
   id: 0
   inventoryManager: {fileID: 972701498}
   carRotate: {fileID: 8548923000712198944}
+  green: {fileID: 2100000, guid: 6892c7bf575782b49b9c2f3efcd7b844, type: 2}
+  gray: {fileID: 2100000, guid: a0469288866f2c647b60ac71c4854d1a, type: 2}
 --- !u!114 &965317539
 MonoBehaviour:
   m_ObjectHideFlags: 0

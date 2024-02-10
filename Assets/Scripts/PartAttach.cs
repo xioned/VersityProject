@@ -18,7 +18,10 @@ public class PartAttach : MonoBehaviour
     public int id;
     public InventoryManager inventoryManager;
     public CarRotate carRotate;
-    internal void SetGroundHeight(int id)
+
+    public Material green;
+    public Material gray;
+    public void SetGroundHeight(int id)
     {
         this.id = id;
         activeGhost = null;
@@ -33,11 +36,25 @@ public class PartAttach : MonoBehaviour
             {
                 ghostObject[i].SetActive(true);
                 activeGhost = ghostObject[i];
+                GreenColor();
+            }
+        }
+    }
+    private void GreenColor()
+    {
+        CartPart part = activeGhost.GetComponent<CartPart>();
+        for (int i = 0; i < part.subPart.Length; i++)
+        {
+            part.subPart[i].TryGetComponent(out MeshRenderer a);
+            if(a != null)
+            {
+                a.material = green;
             }
         }
     }
     public void ShowGhost()
     {
+        return;
         for (int i = 0; i < ghostObject.Length; i++)
         {
             ghostObject[i].SetActive(true);
